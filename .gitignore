@@ -7,12 +7,12 @@
 .idea/
 
 # Some files related to CMake
-liblycoris.so
+libnorse.so
 CMakeFiles/
 cmake_install.cmake
 CMakeCache.txt
 Makefile
-Lycoris.cbp
+Norse.cbp
 cmake-build-debug/
 cmake-build-release/
 lib/

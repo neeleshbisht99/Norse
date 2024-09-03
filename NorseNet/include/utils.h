@@ -6,14 +6,14 @@
     in the LICENSE file.
 */
 
-#ifndef LYCORIS_UTILS_H
-#define LYCORIS_UTILS_H
+#ifndef NORSE_UTILS_H
+#define NORSE_UTILS_H
 
 #include <random>
 #include <regex>
 #include "individual.h"
 
-namespace LycorisNet {
+namespace NorseNet {
 
     /*
      * It is used to assist in sorting individual (neural networks).
@@ -27,9 +27,9 @@ namespace LycorisNet {
 
         ~SortFitness();
 
-        friend class LycorisUtils;
+        friend class NorseUtils;
 
-        friend class Lycoris;
+        friend class Norse;
 
     private:
         // Cross entropy or Euclidean distance.
@@ -45,21 +45,21 @@ namespace LycorisNet {
      * in the calculation process.
      */
 
-    class LycorisUtils {
+    class NorseUtils {
     public:
-        LycorisUtils();
+        NorseUtils();
 
-        ~LycorisUtils();
+        ~NorseUtils();
 
-        friend class Lycoris;
+        friend class Norse;
 
         friend class Individual;
 
         friend class Args;
 
-        friend Lycoris *loadModel(const std::string &path, uint32_t capacity);
+        friend Norse *loadModel(const std::string &path, uint32_t capacity);
 
-        friend Lycoris *loadViaString(const std::string &model, uint32_t capacity);
+        friend Norse *loadViaString(const std::string &model, uint32_t capacity);
 
     private:
         // To emerge random numbers.
@@ -107,14 +107,14 @@ namespace LycorisNet {
         }
 
         // Generate a random number in the interval [min, max) (float).
-        inline float LycorisRandomFloat(float min, float max) {
+        inline float NorseRandomFloat(float min, float max) {
             auto temp =
                     (rd() - std::random_device::min()) / double(std::random_device::max() - std::random_device::min());
             return temp * (max - min) + min;
         };
 
         // Generate a random number in the interval [0, N) (uint32_t).
-        inline uint32_t LycorisRandomUint32_t(uint32_t N) {
+        inline uint32_t NorseRandomUint32_t(uint32_t N) {
             return uint32_t(rd() % N);
         }
 
@@ -147,4 +147,4 @@ namespace LycorisNet {
 
 }
 
-#endif //LYCORIS_UTILS_H
+#endif //NORSE_UTILS_H

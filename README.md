@@ -1,23 +1,23 @@
-![logo](https://github.com/RootHarold/Lycoris/blob/master/logo/logo.svg)
+![logo](https://github.com/RootHarold/Norse/blob/master/logo/logo.svg)
 
-**Lycoris** is a lightweight and easy-to-use deep learning framework with **neural architecture search**.
+**Norse** is a lightweight and easy-to-use deep learning framework with **neural architecture search**.
 
-Lycoris aims to provide developers with an automated service for end-to-end neural network architecture search, enabling developers to obtain better models with fewer hyperparameter configurations. For more detailed usage of Lycoris, please refer to related [documents](https://github.com/RootHarold/Lycoris#Documents).
+Norse aims to provide developers with an automated service for end-to-end neural network architecture search, enabling developers to obtain better models with fewer hyperparameter configurations. For more detailed usage of Norse, please refer to related [documents](https://github.com/RootHarold/Norse#Documents).
 
-At this stage, Lycoris enables you to deploy computation to one or more CPUs in most operating systems. **In the future, GPUs will be added to the minimalist architecture**.
+At this stage, Norse enables you to deploy computation to one or more CPUs in most operating systems. **In the future, GPUs will be added to the minimalist architecture**.
 
 # Features
 * Lightweight and portable to smart devices.
 * Support online learning.
 * Automatic neural network architecture search.
-* Support for [Python](https://github.com/RootHarold/Lycoris/tree/master/python). In the near future, other programming languages such as Java, C #, Go, and Rust will be supported.
+* Support for [Python](https://github.com/RootHarold/Norse/tree/master/python). In the near future, other programming languages such as Java, C #, Go, and Rust will be supported.
 * Cloud-friendly. Based on C++11, it supports most operating systems and compilers.
 
 # Installation
 * C++ version:
 
 ```
-cd Lycoris
+cd Norse
 cmake .
 sudo make install
 ```
@@ -38,26 +38,26 @@ make install
 (If **pybind11** and its **header files** are already installed, you can ignore the above steps.)
 
 ```
-pip install LycorisNet
+pip install NorseNet
 ```
 
 It can also be obtained via manual compilation:
 
 ```
-cd Lycoris/python
+cd Norse/python
 cmake .
 make
 ```
 
 # Documents
-The following is the documentation for the C ++ version while that of the Python version can be viewed [here](https://github.com/RootHarold/Lycoris/tree/master/python#Documents).
+The following is the documentation for the C ++ version while that of the Python version can be viewed [here](https://github.com/RootHarold/Norse/tree/master/python#Documents).
 
-The APIs provided by **Lycoris** (`namespace LycorisNet`):
+The APIs provided by **Norse** (`namespace NorseNet`):
 
 Function | Description |  Inputs | Returns
 -|-|-|-
-**Lycoris**(uint32_t capacity, uint32_t inputDim, uint32_t outputDim, const std::string &mode); | Constructor.<br/> The class Lycoris is the highest level abstraction of LycorisNet. | **capacity**: Capacity of Lycoris.<br/> **inputDim**: Input dimension.<br/> **outputDim**: Output dimension.<br/> **mode**: Mode of Lycoris (classify or predict). | An object of the class Lycoris.
-**~Lycoris**(); | Destructor. |  | 
+**Norse**(uint32_t capacity, uint32_t inputDim, uint32_t outputDim, const std::string &mode); | Constructor.<br/> The class Norse is the highest level abstraction of NorseNet. | **capacity**: Capacity of Norse.<br/> **inputDim**: Input dimension.<br/> **outputDim**: Output dimension.<br/> **mode**: Mode of Norse (classify or predict). | An object of the class Norse.
+**~Norse**(); | Destructor. |  | 
 void **preheat**(uint32_t num_of_nodes, uint32_t num_of_connections, uint32_t depth); | Preheating process of the neural network cluster. | **num_of_nodes**: The number of hidden nodes added for each neural network.<br/> **num_of_connections**: The number of connections added for each neural network.<br/> **depth**: Total layers of each neural network. |
 void **evolve**(std::vector&#60;std::vector&#60;float&#62; &#62; &input, std::vector&#60;std::vector&#60;float&#62; &#62; &desire); | Evolve the neural network cluster. | **input**: Input data.<br/> **desire**: Expected output data. |
 void **fit**(std::vector&#60;std::vector&#60;float&#62; &#62; &input, std::vector&#60;std::vector&#60;float&#62; &#62; &desire); | Fit all neural networks in the neural network cluster. | **input**: Input data.<br/> **desire**: Expected output data. |
@@ -75,27 +75,27 @@ void **setLR**(float lr); | Set the learning rate. | **As literally.** |
 uint32_t **getSize**(); |  |  | Returns the size of the best individual.
 uint32_t **getInputDim**(); |  |  | Returns the input dimension.
 uint32_t **getOutputDim**(); |  |  | Returns the output dimension.
-uint32_t **getCapacity**(); |  |  | Returns capacity of Lycoris.
+uint32_t **getCapacity**(); |  |  | Returns capacity of Norse.
 float **getLoss**(); |  |  | Returns the loss.
-std::string **getMode**(); |  |  | Returns mode of Lycoris (classify or predict).
+std::string **getMode**(); |  |  | Returns mode of Norse (classify or predict).
 std::vector&#60;uint32_t&#62; **getLayers**(); |  |  | Returns the number of nodes in each layer of the neural network.
 std::vector&#60;float&#62; **getHiddenLayer**(uint32_t pos); | The parameter pos starts at index 0. | **pos**: The number of the layer needed. | Returns a vector of nodes in a specific layer of the best individual.
 *static* std::string **version**(); |  |  | Returns version information and copyright information.
 
-The funtion used to import the pre-trained model (`namespace LycorisNet`):
+The funtion used to import the pre-trained model (`namespace NorseNet`):
 
 Function | Description |  Inputs | Returns
 -|-|-|-
-Lycoris ***loadModel**(const std::string &path, uint32_t capacity); | Import the pre-trained model. | **path**: File path of the pre-trained model.<br/> **capacity**: Capacity of the neural network cluster. | Returns a pointer to the object of class Lycoris.
-Lycoris ***loadViaString**(const std::string &model, uint32_t capacity); | Import the pre-trained model via string. | **model**: The pre-trained model in the form of string.<br/> **capacity**: Capacity of the neural network cluster. | Returns a pointer to the object of class Lycoris.
+Norse ***loadModel**(const std::string &path, uint32_t capacity); | Import the pre-trained model. | **path**: File path of the pre-trained model.<br/> **capacity**: Capacity of the neural network cluster. | Returns a pointer to the object of class Norse.
+Norse ***loadViaString**(const std::string &model, uint32_t capacity); | Import the pre-trained model via string. | **model**: The pre-trained model in the form of string.<br/> **capacity**: Capacity of the neural network cluster. | Returns a pointer to the object of class Norse.
 
 More detailed documentation will be released in the form of sample code.
 
 # Examples
-* [**LycorisAD**](https://github.com/RootHarold/LycorisAD): an elegant outlier detection algorithm framework based on AutoEncoder.
-* [**LycorisR**](https://github.com/RootHarold/LycorisR): a lightweight recommendation algorithm framework based on LycorisNet.
-* [**LycorisQ**](https://github.com/RootHarold/LycorisQ): a neat reinforcement learning framework based on LycorisNet.
+* [**NorseAD**](https://github.com/RootHarold/NorseAD): an elegant outlier detection algorithm framework based on AutoEncoder.
+* [**NorseR**](https://github.com/RootHarold/NorseR): a lightweight recommendation algorithm framework based on NorseNet.
+* [**NorseQ**](https://github.com/RootHarold/NorseQ): a neat reinforcement learning framework based on NorseNet.
 * *More examples will be released in the future.*
 
 # License
-Lycoris is released under the [LGPL-3.0](https://github.com/RootHarold/Lycoris/blob/master/LICENSE) license. By using, distributing, or contributing to this project, you agree to the terms and conditions of this license.
+Norse is released under the [LGPL-3.0](https://github.com/RootHarold/Norse/blob/master/LICENSE) license. By using, distributing, or contributing to this project, you agree to the terms and conditions of this license.

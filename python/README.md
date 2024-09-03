@@ -1,6 +1,6 @@
-![logo](https://github.com/RootHarold/Lycoris/blob/master/logo/logo.svg)
+![logo](https://github.com/RootHarold/Norse/blob/master/logo/logo.svg)
 
-LycorisNet's Python bindings are implemented based on [Pybind11](https://github.com/pybind/pybind11).
+NorseNet's Python bindings are implemented based on [Pybind11](https://github.com/pybind/pybind11).
 # Installation
 ```
 git clone "https://github.com/pybind/pybind11.git"
@@ -14,23 +14,23 @@ make install
 (If **pybind11** and its **header files** are already installed, you can ignore the above steps.)
 
 ```
-pip install LycorisNet
+pip install NorseNet
 ```
 
 It can also be obtained via manual compilation:
 
 ```
-cd Lycoris/python
+cd Norse/python
 cmake .
 make
 ```
 
 # Documents
-The APIs provided by **Lycoris** (`from LycorisNet import Lycoris`):
+The APIs provided by **Norse** (`from NorseNet import Norse`):
 
 Function | Description |  Inputs | Returns
 -|-|-|-
-**Lycoris**(capacity, inputDim, outputDim, mode) | Constructor.<br/> The class Lycoris is the highest level abstraction of LycorisNet. | **capacity**: Capacity of Lycoris.<br/> **inputDim**: Input dimension.<br/> **outputDim**: Output dimension.<br/> **mode**: Mode of Lycoris (classify or predict). | An object of the class Lycoris.
+**Norse**(capacity, inputDim, outputDim, mode) | Constructor.<br/> The class Norse is the highest level abstraction of NorseNet. | **capacity**: Capacity of Norse.<br/> **inputDim**: Input dimension.<br/> **outputDim**: Output dimension.<br/> **mode**: Mode of Norse (classify or predict). | An object of the class Norse.
 **preheat**(nodes, connections, depths) | Preheating process of the neural network cluster. | **nodes**: The number of hidden nodes added for each neural network.<br/> **connections**: The number of connections added for each neural network.<br/> **depths**: Total layers of each neural network. |
 **evolve**(input, desire) | Evolve the neural network cluster. | **input**: Input data.<br/> **desire**: Expected output data. |
 **fit**(input, desire) | Fit all neural networks in the neural network cluster. | **input**: Input data.<br/> **desire**: Expected output data. |
@@ -48,32 +48,32 @@ Function | Description |  Inputs | Returns
 **getSize**() |  |  | Returns the size of the best individual.
 **getInputDim**() |  |  | Returns the input dimension.
 **getOutputDim**() |  |  | Returns the output dimension.
-**getCapacity**() |  |  | Returns capacity of Lycoris.
+**getCapacity**() |  |  | Returns capacity of Norse.
 **getLoss**() |  |  | Returns the loss.
-**getMode**() |  |  | Returns mode of Lycoris (classify or predict).
+**getMode**() |  |  | Returns mode of Norse (classify or predict).
 **getLayers**() |  |  | Returns the number of nodes in each layer of the neural network.
 **getHiddenLayer**(pos) | The parameter pos starts at index 0. | **pos**: The number of the layer needed. | Returns a vector of nodes in a specific layer of the best individual.
 `@staticmethod`<br/>**version**() |  |  | Returns version information and copyright information.
 
-The funtion used to import the pre-trained model (`from LycorisNet import loadModel, loadViaString`):
+The funtion used to import the pre-trained model (`from NorseNet import loadModel, loadViaString`):
 
 Function | Description |  Inputs | Returns
 -|-|-|-
-Lycoris **loadModel**(path, capacity) | Import the pre-trained model. | **path**: File path of the pre-trained model.<br/> **capacity**: Capacity of the neural network cluster. | Returns an object of class Lycoris.
-Lycoris **loadViaString**(model, capacity) | Import the pre-trained model via string. | **model**: The pre-trained model in the form of string.<br/> **capacity**: Capacity of the neural network cluster. | Returns an object of class Lycoris.
+Norse **loadModel**(path, capacity) | Import the pre-trained model. | **path**: File path of the pre-trained model.<br/> **capacity**: Capacity of the neural network cluster. | Returns an object of class Norse.
+Norse **loadViaString**(model, capacity) | Import the pre-trained model via string. | **model**: The pre-trained model in the form of string.<br/> **capacity**: Capacity of the neural network cluster. | Returns an object of class Norse.
 
 Information related to parameters and return values also appears within:
 
 ```
->>> help(Lycoris)
+>>> help(Norse)
 >>> help(loadModel)
 ```
 
 # Examples
-* [**LycorisAD**](https://github.com/RootHarold/LycorisAD): an elegant outlier detection algorithm framework based on AutoEncoder.
-* [**LycorisR**](https://github.com/RootHarold/LycorisR): a lightweight recommendation algorithm framework based on LycorisNet.
-* [**LycorisQ**](https://github.com/RootHarold/LycorisQ): a neat reinforcement learning framework based on LycorisNet.
+* [**NorseAD**](https://github.com/RootHarold/NorseAD): an elegant outlier detection algorithm framework based on AutoEncoder.
+* [**NorseR**](https://github.com/RootHarold/NorseR): a lightweight recommendation algorithm framework based on NorseNet.
+* [**NorseQ**](https://github.com/RootHarold/NorseQ): a neat reinforcement learning framework based on NorseNet.
 * *More examples will be released in the future.*
 
 # License
-Lycoris is released under the [LGPL-3.0](https://github.com/RootHarold/Lycoris/blob/master/LICENSE) license. By using, distributing, or contributing to this project, you agree to the terms and conditions of this license.
+Norse is released under the [LGPL-3.0](https://github.com/RootHarold/Norse/blob/master/LICENSE) license. By using, distributing, or contributing to this project, you agree to the terms and conditions of this license.
