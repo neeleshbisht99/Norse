@@ -15,7 +15,7 @@
 #include <climits>
 #include "utils.h"
 
-namespace LycorisNet {
+namespace NorseNet {
 
     class LycorisUtils;
 
