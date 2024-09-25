@@ -8,7 +8,7 @@
 
 #include "node.h"
 
-namespace LycorisNet {
+namespace NorseNet {
 
     Node::Node(uint32_t nodeNum, uint32_t nodeType) {
         this->nodeNum = nodeNum;
