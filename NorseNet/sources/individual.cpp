@@ -11,7 +11,7 @@
 #include <iostream>
 #include <numeric>
 
-namespace LycorisNet {
+namespace NorseNet {
 
     Individual::Individual() {
 
@@ -110,7 +110,7 @@ namespace LycorisNet {
                     f += temp->second->value * o.weight;
                 }
             }
-            n->value = LycorisUtils::relu(f + n->bias);
+            n->value = NorseUtils::relu(f + n->bias);
 
             if (n->nodeType == 2) {
                 output[pointer] = n->value;
@@ -167,7 +167,7 @@ namespace LycorisNet {
                     }
                 }
             } else { // Classify.
-                LycorisUtils::softmax(output, outputNum);
+                NorseUtils::softmax(output, outputNum);
 
                 for (uint32_t j = 0; j < nodeSlice->size(); ++j) {
                     auto index = (*nodeSlice)[nodeSlice->size() - 1 - j];
@@ -209,9 +209,9 @@ namespace LycorisNet {
             }
 
             if (args->mode == "classify") {
-                this->fitness += LycorisUtils::cross_entropy(args->desireArray[z], output, outputNum);
+                this->fitness += NorseUtils::cross_entropy(args->desireArray[z], output, outputNum);
             } else {
-                this->fitness -= LycorisUtils::euclidean_distance(output, args->desireArray[z], outputNum);
+                this->fitness -= NorseUtils::euclidean_distance(output, args->desireArray[z], outputNum);
             }
 
             if (z == args->batchSize - 1) {
@@ -338,7 +338,7 @@ namespace LycorisNet {
                     args->batchData[z][data_p++] = 0 - ci->args->lr * grad;
                 }
             } else { // Classify.
-                LycorisUtils::softmax(output, outputNum);
+                NorseUtils::softmax(output, outputNum);
 
                 for (uint32_t j = 0; j < ci->nodeSlice->size(); ++j) {
                     auto index = (*ci->nodeSlice)[ci->nodeSlice->size() - 1 - j];
@@ -367,10 +367,10 @@ namespace LycorisNet {
             }
 
             if (args->mode == "classify") {
-                args->batchData[z][data_p] = LycorisUtils::cross_entropy(ci->args->desireArray[z], output, outputNum);
+                args->batchData[z][data_p] = NorseUtils::cross_entropy(ci->args->desireArray[z], output, outputNum);
             } else {
                 args->batchData[z][data_p] =
-                        0 - LycorisUtils::euclidean_distance(output, ci->args->desireArray[z], outputNum);
+                        0 - NorseUtils::euclidean_distance(output, ci->args->desireArray[z], outputNum);
             }
         }
 

@@ -12,7 +12,7 @@
  * The implementation of constructors in class Gen and class Ome.
  */
 
-namespace LycorisNet {
+namespace NorseNet {
 
     Gen::Gen() {
 

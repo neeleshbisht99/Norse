@@ -6,8 +6,8 @@
     in the LICENSE file.
 */
 
-#ifndef LYCORIS_INDIVIDUAL_H
-#define LYCORIS_INDIVIDUAL_H
+#ifndef NORSE_INDIVIDUAL_H
+#define NORSE_INDIVIDUAL_H
 
 #include <vector>
 #include <map>
@@ -15,7 +15,7 @@
 #include "node.h"
 #include "args.h"
 
-namespace LycorisNet {
+namespace NorseNet {
 
     class Args;
 
@@ -31,13 +31,13 @@ namespace LycorisNet {
 
         ~Individual();
 
-        friend class LycorisUtils;
+        friend class NorseUtils;
 
-        friend class Lycoris;
+        friend class Norse;
 
-        friend Lycoris *loadModel(const std::string &path, uint32_t capacity);
+        friend Norse *loadModel(const std::string &path, uint32_t capacity);
 
-        friend Lycoris *loadViaString(const std::string &model, uint32_t capacity);
+        friend Norse *loadViaString(const std::string &model, uint32_t capacity);
 
     private:
         // The input dimension of the neural network.
@@ -92,4 +92,4 @@ namespace LycorisNet {
 
 }
 
-#endif //LYCORIS_INDIVIDUAL_H
+#endif //NORSE_INDIVIDUAL_H

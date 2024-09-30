@@ -6,13 +6,13 @@
     in the LICENSE file.
 */
 
-#ifndef LYCORIS_NODE_H
-#define LYCORIS_NODE_H
+#ifndef NORSE_NODE_H
+#define NORSE_NODE_H
 
 #include <map>
 #include "genome.h"
 
-namespace LycorisNet {
+namespace NorseNet {
 
     /*
      * Each node contains its number, type, the value used in
@@ -28,15 +28,15 @@ namespace LycorisNet {
 
         ~Node();
 
-        friend class Lycoris;
+        friend class Norse;
 
-        friend class LycorisUtils;
+        friend class NorseUtils;
 
         friend class Individual;
 
-        friend Lycoris *loadModel(const std::string &path, uint32_t capacity);
+        friend Norse *loadModel(const std::string &path, uint32_t capacity);
 
-        friend Lycoris *loadViaString(const std::string &model, uint32_t capacity);
+        friend Norse *loadViaString(const std::string &model, uint32_t capacity);
 
     private:
         // The number of the node.
@@ -66,4 +66,4 @@ namespace LycorisNet {
 
 }
 
-#endif //LYCORIS_NODE_H
+#endif //NORSE_NODE_H

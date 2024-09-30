@@ -9,14 +9,14 @@
 #include "args.h"
 #include "utils.h"
 
-namespace LycorisNet {
+namespace NorseNet {
 
     /*
      * Preset some hyper-parameters.
      */
 
     Args::Args() {
-        utils = new LycorisUtils();
+        utils = new NorseUtils();
 
         p1 = 0.3;
         p2 = 0.075;

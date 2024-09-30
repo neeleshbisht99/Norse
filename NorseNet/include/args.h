@@ -6,8 +6,8 @@
     in the LICENSE file.
 */
 
-#ifndef LYCORIS_ARGS_H
-#define LYCORIS_ARGS_H
+#ifndef NORSE_ARGS_H
+#define NORSE_ARGS_H
 
 #include <string>
 #include <vector>
@@ -17,7 +17,7 @@
 
 namespace NorseNet {
 
-    class LycorisUtils;
+    class NorseUtils;
 
     /*
      * The class Args stores the super parameters needed in
@@ -30,19 +30,19 @@ namespace NorseNet {
 
         ~Args();
 
-        friend class LycorisUtils;
+        friend class NorseUtils;
 
-        friend class Lycoris;
+        friend class Norse;
 
         friend class Individual;
 
-        friend Lycoris *loadModel(const std::string &path, uint32_t capacity);
+        friend Norse *loadModel(const std::string &path, uint32_t capacity);
 
-        friend Lycoris *loadViaString(const std::string &model, uint32_t capacity);
+        friend Norse *loadViaString(const std::string &model, uint32_t capacity);
 
     private:
-        // An object of the class LycorisUtils which is integrated into this.
-        LycorisUtils *utils;
+        // An object of the class NorseUtils which is integrated into this.
+        NorseUtils *utils;
 
 
 
@@ -50,4 +50,4 @@ namespace NorseNet {
 
 }
 
-#endif //LYCORIS_ARGS_H
+#endif //NORSE_ARGS_H
