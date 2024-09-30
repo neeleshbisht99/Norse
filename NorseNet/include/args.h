@@ -41,7 +41,7 @@ namespace NorseNet {
         friend Norse *loadViaString(const std::string &model, uint32_t capacity);
 
     private:
-        // An object of the class NorseUtils which is integrated into this.
+        // An object of the class NorseUtils which is integrated into this, for the granular functions.
         NorseUtils *utils;
 
 
